@@ -1,12 +1,15 @@
 # nodejs-mongo-crud
 CRUD service using NodeJS and MongoDB. Week 7 task of I4GxZURI (backend) training.
 
-## task
-Create a Carousel/Slideshow with 6 different images of  your choice. Ensure the following:<br/>
-The images are properly styled.
-Directional icons (previous and next Icons ) are shown on the images only when hovered<br/>
-On clicking the icons, it should show the next/previous image. <br/>
-When the next icon on the last image is clicked, it should show the first image.<br/>
-When the previous icon on the first image is clicked, it should show the last image. <br/>
-Submission Mode<br/>
-GitHub Link
+## Task Description:
+Create a Node.js server using any framework of choice (optional) and appropriate folder structure (routes, controllers, models, etc.), which will perform the following functions:<br/>
+1. Add a Todo task to a Todo collection<br/>
+2. Update a particular Todo task<br/>
+3. Delete Todo task<br/>
+4. Retrieve all Todo tasks (pagination optional)<br/>
+
+Each Todo document should contain at least the following fields: _id, title, description, timestamp.<br/>
+
+You can use either a local mongoDB instance or a hosted one on any provider of choice.<br/>
+
+Push your code to GitHub and submit your accessible GitHub Link.<br/>
