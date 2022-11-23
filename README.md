@@ -13,3 +13,8 @@ Each Todo document should contain at least the following fields: _id, title, des
 You can use either a local mongoDB instance or a hosted one on any provider of choice.<br/>
 
 Push your code to GitHub and submit your accessible GitHub Link.<br/>
+
+## How to use:
+npm i <br />
+
+npm run start
