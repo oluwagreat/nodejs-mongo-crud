@@ -18,3 +18,10 @@ Push your code to GitHub and submit your accessible GitHub Link.<br/>
 npm i <br />
 
 npm run start
+
+## Endpoints
+ 1. Add a Todo task to a Todo collection - <br/>URL:http://localhost:3000/task/new METHOD:POST BODY: title, description <br/>
+2. Update a particular Todo task- <br/>URL:http://localhost:3000/task/new METHOD:PUT BODY: title, description <br/>
+3. Delete Todo task - <br/>URL:http://localhost:3000/task/:id METHOD:DELETE BODY: title, description <br/>
+4. Retrieve all Todo tasks - <br/>URL:http://localhost:3000/task/ METHOD:GET <br/>
+* Bonus - Retrieve a single task - <br/>URL:http://localhost:3000/task/:id METHOD:GET 

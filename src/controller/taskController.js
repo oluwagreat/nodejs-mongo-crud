@@ -1,19 +1,20 @@
-const User = require("../model/User")
+const Task = require("../model/Task")
 
-//get all users
-exports.getAllUsers = async(req,res) =>{
+//get all tasks
+exports.getAllTasks = async(req,res) =>{
     try {
-        let users = await User.find();
-        if(users.length === 0)
+        let allTasks = await Task.find();
+        if(allTasks.length === 0)
         return res.status(404).json({
             success: false,
-            message: "No Users were found"
+            message: "No task found!"
         })
         res.status(200).json({
             success: true,
-            message: "Users found",
-            users,
-            count:users.length
+            message: "All tasks retrieved",
+            taskCount:allTasks.length,
+            allTasks,
+            
         })
     } catch (error) {
         res.status(500).json({
@@ -24,20 +25,20 @@ exports.getAllUsers = async(req,res) =>{
     }
 }
 
-//get single users
-exports.getUser = async(req,res) => {
+//get single task
+exports.getTask = async(req,res) => {
     try {
         let id = {_id:req.params.id};
-        let user = await User.findOne(id);
-        if(!user)
+        let task = await Task.findOne(id);
+        if(!task)
         return res.status(404).json({
             success: false,
-            message:'User not found'
+            message:'Task not found'
         });
         res.status(200).json({
             success:true,
-            message:'User found',
-            user
+            message:'Task found',
+            task
         });
     } catch (error) {
         res.status(500).json({
@@ -48,20 +49,20 @@ exports.getUser = async(req,res) => {
         
     }
 }
-//create user
-exports.createUser = async(req,res) => {
+//create task
+exports.createTask = async(req,res) => {
     try {
-        let user = await req.body;
-        let created = await User.create(user);
+        let newTask = await req.body;
+        let created = await Task.create(newTask);
         if (!created)
           return res.status(400).json({
             success: false,
-            message: "User creation failed",
+            message: "Task creation failed",
           });
         return res.status(201).json({
           success: true,
-          message: "User created successfully",
-          user: created,
+          message: "Task created successfully",
+          task: created
         });
     } catch (error) {
         res.status(500).json({
@@ -73,21 +74,21 @@ exports.createUser = async(req,res) => {
     }
 }
 
-//update users
-exports.updateUser =  async (req, res) => {
+//update task
+exports.updateTask =  async (req, res) => {
     try {
         let id = { _id: req.params.id };
-        let user = await req.body;
-        let update = await User.findOneAndUpdate(id, user, { new: true });
+        let task = await req.body;
+        let update = await Task.findOneAndUpdate(id, task, { new: true });
         if (!update)
           return res.status(400).json({
             success: false,
-            message: "User not updated",
+            message: "Task not updated",
           });
         return res.status(200).json({
           success: true,
-          message: "User updated",
-          user: update,
+          message: "Task updated",
+          task: update,
         });
     } catch (error) {
        res.status(500).json({
@@ -100,18 +101,18 @@ exports.updateUser =  async (req, res) => {
 
 //delete users
 
-exports.deleteUser = async (req,res) => {
+exports.deleteTask = async (req,res) => {
     try {
         let id = {_id : req.params.id};
-        let deleted = await User.findOneAndRemove(id);
+        let deleted = await Task.findOneAndRemove(id);
         if (!deleted)
         return res.status(400).json({
             success: false,
-            message: 'User not deleted'
+            message: 'Task not deleted'
         });
         return res.status(200).json({
             success: true,
-            message: 'User deleted successfully'
+            message: 'Task deleted successfully'
         });
     } catch (error) {
         res.status(500).json({
